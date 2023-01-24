@@ -1,0 +1,14 @@
+version: '3.1'
+services:
+  db:
+    image: mysql
+    container_name: udemy_course_spring
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - rest_with_spring:/var/lib/mysql
+
+volumes:
+  rest_with_spring:
