@@ -3,11 +3,10 @@ name: Continuous Integration with Github Actions
 on:
   push:
     branches:
-     - main
+      - main
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -33,7 +32,8 @@ jobs:
       run: docker compose build
       
     - name: Push to Docker Hub Container Registry
-      run: docker tag ${{ secrets.DOCKER_USERNAME }}/rest-with-spring:latest ${{ secrets.DOCKER_USERNAME }}/rest-with-spring:${{ github.run_id }}
+      run:
+          docker tag ${{ secrets.DOCKER_USERNAME }}/rest-with-spring:latest ${{ secrets.DOCKER_USERNAME }}/rest-with-spring:${{ github.run_id }}
            
-           docker push ${{ secrets.DOCKER_USERNAME }}/rest-with-spring:${{ github.run_id }}
-           docker push ${{ secrets.DOCKER_USERNAME }}/rest-with-spring:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/rest-with-spring:${{ github.run_id }}
+          docker push ${{ secrets.DOCKER_USERNAME }}/rest-with-spring:latest
