@@ -33,7 +33,7 @@ jobs:
       run: docker compose build
       
     - name: Push to Docker Hub Container Registry
-      run: docker tag d252f6629449 ${{ secrets.DOCKER_USERNAME }}/rest-with-spring:latest ${{ secrets.DOCKER_USERNAME }}/rest-with-spring:${{ github.run_id }}
+      run: docker tag ${{ secrets.DOCKER_USERNAME }}/rest-with-spring:latest ${{ secrets.DOCKER_USERNAME }}/rest-with-spring:${{ github.run_id }}
            
            docker push ${{ secrets.DOCKER_USERNAME }}/rest-with-spring:${{ github.run_id }}
            docker push ${{ secrets.DOCKER_USERNAME }}/rest-with-spring:latest
