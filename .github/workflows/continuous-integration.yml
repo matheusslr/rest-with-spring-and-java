@@ -24,11 +24,11 @@ jobs:
         distribution: 'adopt'
         cache: maven
     - name: Build Application JAR
-      working-directory: ./22_DockerizingOurAPI
+      working-directory: ./23_DeployingOurAppToAWS
       run: mvn clean package
 
     - name: Docker Compose
-      working-directory: ./22_DockerizingOurAPI
+      working-directory: ./23_DeployingOurAppToAWS
       run: docker compose build
       
     - name: Push to Docker Hub Container Registry
